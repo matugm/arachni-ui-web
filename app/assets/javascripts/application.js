@@ -294,6 +294,10 @@ $(document).on( 'page:fetch', function( $ ) {
     Pace.restart();
 });
 
+$(document).on( 'page:load', function( $ ) {
+    Pace.stop();
+});
+
 $(document).ready( function( $ ) {
     updatePage();
 
@@ -378,17 +382,11 @@ $(document).ready( function( $ ) {
 
 });
 
-function loading(){
-    $('#loading').show();
-}
 
 $(window).bind( "popstate", function () {
     $.getScript( location.href );
 });
 
-$(document).ajaxStop( function() {
-    $("#loading").hide();
-});
 $(document).ajaxSuccess( function() {
     updatePage();
 });
